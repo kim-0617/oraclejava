@@ -19,7 +19,7 @@
 </head>
 <body>
 	<div class="table__wrap">
-		<table width="600px">
+		<table style="width : 600px">
 			<caption>게시판 리스트</caption>
 			<tr>
 				<th>글 번호</th>

@@ -64,7 +64,7 @@
 			<a href="list.jsp" class="custom-btn btn-1">목록</a>
 			<a href="insert.jsp" class="custom-btn btn-1">글 쓰기</a>
 			<a href="update.jsp?no=<%=boardDto.getNo()%>" class="custom-btn btn-1">글 수정</a>
-			<a href="delete.jsp" class="custom-btn btn-1">글 삭제</a>
+			<a href="delete.jsp?no=<%=boardDto.getNo()%>" class="custom-btn btn-1">글 삭제</a>
 		</div>
 	</div>
 </body>
