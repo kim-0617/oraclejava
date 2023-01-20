@@ -13,9 +13,17 @@ public class BoardView extends AbstractController {
 		Long no = Long.parseLong(request.getParameter("no"));
 
 		BoardDao boardDao = BoardDao.getInstance();
-		BoardDto boardDto = boardDao.getBoardView(no);
 
-		return new ModelAndView("/WEB-INF/board/content.jsp", "boardDto", boardDto);
+		if (boardDao.updateReadCount(no)) {
+			BoardDto boardDto = boardDao.getBoardView(no);
+			return new ModelAndView("/WEB-INF/board/content.jsp", "boardDto", boardDto);
+		} else {
+			ModelAndView mav = new ModelAndView("/WEB-INF/board/result.jsp");
+			mav.addObject("msg", no + "번 게시물이 존재하지 않습니다.");
+			mav.addObject("url", "BoardList.do");
+			return mav;
+		}
+
 	}
 
 }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test 01</title>
+<script type="text/javascript" src="jquery-3.6.3.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#btn1').click(() => {
+			$.ajax({
+				url : 'msg.txt',
+				success : function(data) {
+					$('#rcvData').html(data);
+				},
+			});
+		});
+		
+		$('#btn2').click(() => {
+			$.ajax({
+				url : 'msg.jsp',
+				success : function(data) {
+					$('#rcvData').html(data);
+				},
+			});
+		});
+	})
+</script>
+</head>
+<body>
+	<input type="button" value="테스트1" id="btn1"/>
+	<input type="button" value="테스트2" id="btn2"/>
+	<div id="rcvData"></div>
+</body>
+</html>

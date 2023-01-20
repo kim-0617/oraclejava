@@ -199,3 +199,57 @@ SQL>
  5) SELECT의 경우 sql 실행 결과를 ResultSet으로 받아서 정보를 객체에 옮겨 준다.
  6) 작업중에 사용한 자원은 역순으로 반납한다.
  7) JDPC API가 만들어내는 예외를 직접 처리하거나 thorws를 이용해서 처리
+
+10. 커넥션 풀
+ㄴ DB와 연결된 커넥션을 미리 만들어서 풀속에 저장해두고 필요 시, 커넥션을 풀에서 가져다 쓰고 반환하는 기법
+<Resource name="OracleCP" 
+auth="Container"
+driverClassName="oracle.jdbc.OracleDriver"
+url="jdbc:oracle:thin:@localhost:1521/xepdb1"
+username="oraclejava"
+password="oraclejava"
+type="javax.sql.DataSource"
+maxActive="50"
+maxWait="-1"
+/>
+
+MVC 패턴
+ㄴ JSTL : 자바를 쓰지 않고 반복문을 돌릴 수 있음 : https://jakarta.apache.org
+
+AJAX
+ㄴ xhr.readyState
+ 0) uninitialized
+ 1) open
+ 2) send
+ 3) interactive : 데이터 일부를 receive
+ 4) complete : 응답 완료
+
+ㄴ xhr.status
+
+<filter>
+	  <filter-name>set character encoding</filter-name>
+	  <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+	  <init-param>
+	  	<param-name>encoding</param-name>
+	  	<param-value>UTF-8</param-value>
+	  </init-param>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>set character encoding</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+<servlet>
+  	<servlet-name>dispatcher</servlet-name>
+  	<servlet-class>board.controller.DispatcherServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>dispatcher</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+
+커먼스 코덱(commons codec) 라이브러리 다운로드
+ㄴ 비밀번호 암호화
+ㄴ https://commons.apache.org

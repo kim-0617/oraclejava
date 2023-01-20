@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>json</title>
+</head>
+<body>
+	<script type="text/javascript">
+		const member = {
+			name : '강백호',
+			aka : '빨간머리',
+			height : 180,
+			hobby : [
+				'모형헬기',
+				'스키',
+			],
+			
+			profile () {
+				return this.name;
+			}
+		};
+		
+		console.log(member.profile());
+	</script>
+</body>
+</html>

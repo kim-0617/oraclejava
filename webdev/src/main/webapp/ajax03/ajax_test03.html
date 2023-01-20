@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test 03</title>
+<script type="text/javascript" src="jquery-3.6.3.js"></script>
+<script>
+	$(function() {
+		$('#say').click(function() {
+			const name = $('#name').val(); 
+			const age = $('#age').val(); 
+			
+			$.ajax({
+				url : "../Iam",
+				type : "GET",
+				data : {
+					name,
+					age,
+				},
+				success : function(result) {
+					$('#rcvData').html(result);
+				}
+			})
+		});
+	});
+</script>
+</head>
+<body>
+	<div>name : <input type="text" id="name"/></div>
+	<div>age : <input type="text" id="age"/></div>
+	<div><input type="button" value="say" id="say" /></div>
+	
+	<hr />
+	<div id="rcvData"></div>
+	<hr />
+</body>
+</html>

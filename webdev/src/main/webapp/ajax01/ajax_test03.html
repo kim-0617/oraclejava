@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test 03</title>
+<script>
+	function process(xhr) {
+		document.querySelector('#rcvData').innerHTML = `<h1>${xhr.responseText}</h1>`;
+	}
+
+	function createXMLHttpRequest() {
+		const xhr = new XMLHttpRequest();
+		
+		return xhr;
+	}
+
+	function load(url) {
+		const xhr = createXMLHttpRequest();
+		const name = document.querySelector('#name').value;
+		const age = document.querySelector('#age').value;
+		
+		xhr.open("GET",`${url}?name=${name}&age=${age}`, true); // true : 비동기요청
+		
+		xhr.onreadystatechange = () => {
+			if(xhr.readyState === 4 ) {
+				if(xhr.status === 200) {					
+					console.log("ok");
+					process(xhr);
+				} else {
+					console.log("error : ", xhr.status);
+				}
+			}
+		}
+		
+		xhr.send(null);
+	}
+</script>
+</head>
+<body>
+	<div>name : <input type="text" id="name"/></div>
+	<div>age : <input type="text" id="age"/></div>
+	<div><input type="button" value="say" onclick="javascript:load('../Iam');" /></div>
+	
+	<hr />
+	<div id="rcvData"></div>
+	<hr />
+</body>
+</html>
